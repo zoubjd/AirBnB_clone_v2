@@ -1,5 +1,6 @@
--- grants all prevliges to user
-
-CREATE DATABASE hbnb_dev_db IF NOT EXISTS;
-CREATE USER hbnb_dev @'localhost' IF NOT EXISTS;
-GRANT ALL PRIVILEGES ON DATABASE hbnb_dev_db TO hbnb_dev;
+-- Create dev database and user
+CREATE DATABASE IF NOT EXISTS hbnb_dev_db;
+CREATE USER IF NOT EXISTS 'hbnb_dev'@'localhost' IDENTIFIED BY 'hbnb_dev_pwd';
+GRANT USAGE ON *.* TO 'hbnb_dev'@'localhost';
+GRANT ALL ON hbnb_dev_db.* TO 'hbnb_dev'@'localhost';
+GRANT SELECT ON performance_schema.* TO 'hbnb_dev'@'localhost';
